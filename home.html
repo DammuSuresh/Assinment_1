@@ -1,0 +1,18 @@
+<div ng-controller="HomeCtrl">
+    <div class="col-xs-12">
+        <h4 class="text-center">Hello {{username}}</h4>
+     <!-- <h3 class="text-center"></h3> -->
+    </div>
+    <div class="col-xs-12">      
+            <div class="chatbox-position" id="textbox">
+                    <div ng-repeat="message in arrayList track by $index" ng-class="{'text-right':message.user === 'System','text-left':message.user !== 'System'}" >
+                       <div  ng-class="{'system-info':message.user === 'System','user-info':message.user !== 'System'}" >{{message.user}}</div>
+                        <span class="user-mesg">{{message.message}}</span>
+                    </div>
+                    <div class="user-response">
+                        <textarea row="2" placeholder="Enter Your Message" ng-model="user.message" ></textarea>
+                        <span><button class="btn btn-success btn-xs" ng-click="fnSendResp()" ng-disabled="!user.message || isbuttonclicked">Send</button></span>
+                    </div>                   
+            </div>            
+    </div>
+</div>
